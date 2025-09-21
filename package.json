@@ -1,19 +1,34 @@
 {
   "name": "ollama-copilot-lite",
   "displayName": "Ollama Copilot Lite",
-  "description": "Sugerencias de código locales con Ollama",
+  "description": "Local AI code suggestions using Ollama - Ghost text, chat panel, and prompt commands. Your private Copilot alternative.",
   "version": "1.0.0",
-  "publisher": "akaronte",
+  "publisher": "Akaronte",
   "license": "MIT",
   "icon": "icon.jpg",
   "repository": {
     "type": "git",
     "url": "https://github.com/akaronte/vs-plugin-ollama"
   },
+  "homepage": "https://github.com/akaronte/vs-plugin-ollama",
+  "bugs": {
+    "url": "https://github.com/akaronte/vs-plugin-ollama/issues"
+  },
+  "keywords": [
+    "ai",
+    "copilot",
+    "ollama",
+    "code completion",
+    "local ai",
+    "chat",
+    "assistant",
+    "suggestions",
+    "productivity"
+  ],
   "engines": {
     "vscode": "^1.88.0"
   },
-  "categories": ["Other"],
+  "categories": ["Machine Learning", "Other"],
   "activationEvents": [
     "onLanguage:javascript",
     "onLanguage:typescript",
