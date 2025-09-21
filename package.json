@@ -5,9 +5,10 @@
   "version": "0.0.1",
   "publisher": "akaronte",
   "license": "MIT",
+  "icon": "icon.jpg",
   "repository": {
     "type": "git",
-    "url": "https://github.com/akaronte/ollama-copilot-lite"
+    "url": "https://github.com/akaronte/vs-plugin-ollama"
   },
   "engines": {
     "vscode": "^1.88.0"
