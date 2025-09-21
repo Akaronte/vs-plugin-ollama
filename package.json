@@ -1,0 +1,155 @@
+{
+  "name": "ollama-copilot-lite",
+  "displayName": "Ollama Copilot Lite",
+  "description": "Sugerencias de código locales con Ollama",
+  "version": "0.0.1",
+  "publisher": "akaronte",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akaronte/ollama-copilot-lite"
+  },
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:go",
+    "onLanguage:java",
+    "onLanguage:csharp",
+    "onLanguage:rust",
+    "onLanguage:cpp",
+    "onLanguage:php",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ollamaCopilot.toggleEnabled",
+        "title": "Ollama Copilot: Toggle for File",
+        "category": "Ollama Copilot"
+      },
+      {
+        "command": "ollamaCopilot.openChat",
+        "title": "Ollama Copilot: Open Chat",
+        "category": "Ollama Copilot"
+      },
+      {
+        "command": "ollamaCopilot.promptToCode",
+        "title": "Ollama Copilot: Prompt to Code (insert)",
+        "category": "Ollama Copilot"
+      },
+      {
+        "command": "ollamaCopilot.promptPreview",
+        "title": "Ollama Copilot: Prompt Preview",
+        "category": "Ollama Copilot"
+      },
+      {
+        "command": "ollamaCopilot.promptReplaceSelection",
+        "title": "Ollama Copilot: Prompt Replace Selection",
+        "category": "Ollama Copilot"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "ollamaCopilot.openChat",
+        "key": "ctrl+alt+i",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "ollamaCopilot.promptToCode",
+        "key": "ctrl+alt+y",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "ollamaCopilot.promptReplaceSelection",
+        "key": "ctrl+alt+u",
+        "when": "editorTextFocus && editorHasSelection"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "ollamaCopilot.promptToCode",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "ollamaCopilot.promptPreview",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "ollamaCopilot.promptReplaceSelection",
+          "when": "editorTextFocus && editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Ollama Copilot Lite",
+      "properties": {
+        "ollamaCopilot.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Habilitar sugerencias en línea de Ollama",
+          "scope": "resource"
+        },
+        "ollamaCopilot.baseUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "URL base de Ollama"
+        },
+        "ollamaCopilot.model": {
+          "type": "string",
+          "default": "qwen2.5-coder:7b",
+          "description": "Modelo de Ollama a usar (p. ej. qwen2.5-coder:7b, deepseek-coder:6.7b, codellama:7b-instruct)"
+        },
+        "ollamaCopilot.temperature": {
+          "type": "number",
+          "default": 0.2,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Temperatura (creatividad) del modelo"
+        },
+        "ollamaCopilot.maxTokens": {
+          "type": "number",
+          "default": 128,
+          "minimum": 1,
+          "description": "Máximo de tokens a predecir (num_predict)"
+        },
+        "ollamaCopilot.maxPrefixChars": {
+          "type": "number",
+          "default": 4000,
+          "minimum": 500,
+          "description": "Cuántos caracteres previos mandar como contexto"
+        },
+        "ollamaCopilot.maxSuffixChars": {
+          "type": "number",
+          "default": 1000,
+          "minimum": 0,
+          "description": "Cuántos caracteres posteriores mandar como contexto"
+        },
+        "ollamaCopilot.requestTimeoutMs": {
+          "type": "number",
+          "default": 20000,
+          "minimum": 1000,
+          "description": "Tiempo máximo de espera (ms) para respuestas de Ollama"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.88.0",
+    "typescript": "^5.5.0",
+    "vsce": "^2.15.0"
+  }
+}
