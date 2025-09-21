@@ -2,7 +2,7 @@
   "name": "ollama-copilot-lite",
   "displayName": "Ollama Copilot Lite",
   "description": "Sugerencias de código locales con Ollama",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "akaronte",
   "license": "MIT",
   "icon": "icon.jpg",
