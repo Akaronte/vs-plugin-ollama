@@ -1,34 +1,19 @@
 {
   "name": "ollama-copilot-lite",
   "displayName": "Ollama Copilot Lite",
-  "description": "Local AI code suggestions using Ollama - Ghost text, chat panel, and prompt commands. Your private Copilot alternative.",
-  "version": "1.0.0",
-  "publisher": "Akaronte",
+  "description": "Sugerencias de código locales con Ollama",
+  "version": "1.0.1",
+  "publisher": "akaronte",
   "license": "MIT",
   "icon": "icon.jpg",
   "repository": {
     "type": "git",
     "url": "https://github.com/akaronte/vs-plugin-ollama"
   },
-  "homepage": "https://github.com/akaronte/vs-plugin-ollama",
-  "bugs": {
-    "url": "https://github.com/akaronte/vs-plugin-ollama/issues"
-  },
-  "keywords": [
-    "ai",
-    "copilot",
-    "ollama",
-    "code completion",
-    "local ai",
-    "chat",
-    "assistant",
-    "suggestions",
-    "productivity"
-  ],
   "engines": {
     "vscode": "^1.88.0"
   },
-  "categories": ["Machine Learning", "Other"],
+  "categories": ["Other"],
   "activationEvents": [
     "onLanguage:javascript",
     "onLanguage:typescript",
@@ -50,8 +35,18 @@
         "category": "Ollama Copilot"
       },
       {
-        "command": "ollamaCopilot.openChat",
-        "title": "Ollama Copilot: Open Chat",
+        "command": "ollamaCopilot.selectModel",
+        "title": "Ollama Copilot: Select Model",
+        "category": "Ollama Copilot"
+      },
+      {
+        "command": "ollamaCopilot.checkHealth",
+        "title": "Ollama Copilot: Check Ollama Health",
+        "category": "Ollama Copilot"
+      },
+      {
+        "command": "ollamaCopilot.pingModel",
+        "title": "Ollama Copilot: Ping Model",
         "category": "Ollama Copilot"
       },
       {
@@ -71,11 +66,6 @@
       }
     ],
     "keybindings": [
-      {
-        "command": "ollamaCopilot.openChat",
-        "key": "ctrl+alt+i",
-        "when": "editorTextFocus"
-      },
       {
         "command": "ollamaCopilot.promptToCode",
         "key": "ctrl+alt+y",
@@ -149,9 +139,14 @@
         },
         "ollamaCopilot.requestTimeoutMs": {
           "type": "number",
-          "default": 20000,
+          "default": 2000000,
           "minimum": 1000,
           "description": "Tiempo máximo de espera (ms) para respuestas de Ollama"
+        },
+        "ollamaCopilot.logPrompts": {
+          "type": "boolean",
+            "default": true,
+            "description": "Escribir en el Output Channel el contenido (truncado) de cada prompt enviado (chat y comandos)"
         }
       }
     }

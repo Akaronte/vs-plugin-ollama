@@ -24,10 +24,10 @@ Extensión de VS Code para obtener sugerencias de código locales (ghost text), 
 	 ```
 2. Instálalo desde VS Code:
 	 - Extensiones → “…” → Install from VSIX…
-	 - Selecciona `ollama-copilot-lite-<version>.vsix` (en la raíz del repo)
+	 - Selecciona `vs-plugin-ollama-<version>.vsix` (en la raíz del repo)
 	 - O por CLI:
 		 ```cmd
-		 code --install-extension "c:\\ruta\\a\\ollama-copilot-lite-<version>.vsix"
+		 code --install-extension "c:\\ruta\\a\\vs-plugin-ollama-<version>.vsix"
 		 ```
 
 ## Uso
